@@ -1,0 +1,388 @@
+/* General Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: auto;
+    overflow-x: hidden;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Align elements to the bottom half of the screen */
+    height: 100vh;
+}
+
+/* File Cabinet Styling */
+.file-cabinet {
+    position: relative;
+    width: 600px;
+    height:650px;
+    perspective: 1500px; /* Adding perspective to make it look 3D */
+    transform: rotateX(20deg); /* Rotate to simulate looking down into a cabinet */
+}
+
+
+p {
+    font-family: Helvetica, sans-serif;
+    font-weight: bold;
+    max-width: 90%; /* Constrain the paragraph width to reduce stretching */
+    margin: 10px auto; /* Center the paragraph with balanced spacing */
+    line-height: 1.6; /* Add more line spacing for better readability */
+    padding: 15px 10px; /* Adds some padding to the text */
+    font-size: 1rem; /* Ensure a comfortable font size */
+}
+/* Individual Page Styling */
+.page {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    transform-origin: bottom center; /* Rotate from the bottom to simulate the upright effect */
+    transition: transform 0.5s ease, opacity 0.5s ease; /* Ensure smooth movement */
+    cursor: pointer;
+    object-fit: contain;
+    z-index: inherit;
+    will-change: transform;
+    transform: translateZ(0);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Stacking Pages with Different Z-Index and Depth */
+#page1, #page2, #page3, #page4, #page5, #page6 {
+    transform: translateY(var(--translateY));
+}
+/* Stacking Pages with Different Z-Index and Depth */
+#page1, #page2, #page3, #page4, #page5, #page6, #page7, #page8, #page9, #page10, #page11, #page12, #page13, #page14,
+#page15, #page16, #page17, #page18, #page19, #page20, #page21, #page22, #page23, #page24 {
+    transform: translateY(var(--translateY));
+}
+
+#page1 { z-index: 1; --translateY: 25px; }
+#page2 { z-index: 2; --translateY: 50px; }
+#page3 { z-index: 3; --translateY: 75px; }
+#page4 { z-index: 4; --translateY: 100px; }
+#page5 { z-index: 5; --translateY: 125px; }
+#page6 { z-index: 6; --translateY: 150px; }
+#page7 { z-index: 7; --translateY: 175px; }
+#page8 { z-index: 8; --translateY: 200px; }
+#page9 { z-index: 9; --translateY: 225px; }
+#page10 { z-index: 10; --translateY: 250px; }
+#page11 { z-index: 11; --translateY: 275px; }
+#page12 { z-index: 12; --translateY: 300px; }
+#page13 { z-index: 13; --translateY: 325px; }
+#page14 { z-index: 14; --translateY: 350px; }
+#page15 { z-index: 15; --translateY: 375px; }
+#page16 { z-index: 16; --translateY: 400px; }
+#page17 { z-index: 17; --translateY: 425px; }
+#page18 { z-index: 18; --translateY: 450px; }
+#page19 { z-index: 19; --translateY: 475px; }
+#page20 { z-index: 20; --translateY: 500px; }
+#page21 { z-index: 21; --translateY: 525px; }
+#page22 { z-index: 22; --translateY: 550px; }
+#page23 { z-index: 23; --translateY: 575px; }
+#page24 { z-index: 24; --translateY: 600px; }
+
+#page1.open { transform: translateY(-325px) !important; }
+#page2.open { transform: translateY(-300px) !important; }
+#page3.open { transform: translateY(-275px) !important; }
+#page4.open { transform: translateY(-250px) !important; }
+#page5.open { transform: translateY(-225px) !important; }
+#page6.open { transform: translateY(-200px) !important; }
+#page7.open { transform: translateY(-175px) !important; }
+#page8.open { transform: translateY(-150px) !important; }
+#page9.open { transform: translateY(-125px) !important; }
+#page10.open { transform: translateY(-100px) !important; }
+#page11.open { transform: translateY(-75px) !important; }
+#page12.open { transform: translateY(-50px) !important; }
+#page13.open { transform: translateY(-25px) !important; }
+#page14.open { transform: translateY(0px) !important; }
+#page15.open { transform: translateY(25px) !important; }
+#page16.open { transform: translateY(50px) !important; }
+#page17.open { transform: translateY(75px) !important; }
+#page18.open { transform: translateY(100px) !important; }
+#page19.open { transform: translateY(125px) !important; }
+#page20.open { transform: translateY(150px) !important; }
+#page21.open { transform: translateY(175px) !important; }
+#page22.open { transform: translateY(200px) !important; }
+#page23.open { transform: translateY(225px) !important; }
+#page24.open { transform: translateY(250px) !important; }
+
+
+
+/* Base styles for all pages with clickable areas */
+.page.clickable-area {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: transparent; /* Make sure it's transparent to see the content */
+    cursor: pointer; /* Change cursor on hover for clickable indication */
+  }
+  
+  /* Shape-specific clip-path styles */
+  .tab-shape1 {
+    clip-path: path(
+      "M45.0913 19.6374C48.9153 8.01527 51.3053 3.52672 54.4123 1.60305C56.882 0.0801527 58.794 0 117.827 0C176.78 0 178.772 0.0801527 181.162 1.60305C184.508 3.60687 186.42 7.29389 190.722 19.5573C193.67 28.2137 194.785 30.458 197.573 33.2634C199.406 35.1069 202.274 37.0305 203.867 37.5916C204.325 37.7232 205.135 37.8488 206.195 37.9618H604C611.18 37.9618 617 43.7821 617 50.9618V682.962C617 690.142 611.18 695.962 604 695.962H0V50.9618C0 43.7821 5.8203 37.9618 13 37.9618H30.0963C32.8617 37.6398 33.872 37.086 35.7703 35.8282C40.0723 32.9427 41.586 30.2977 45.0913 19.6374Z"
+    );
+  }
+  
+
+  
+  .tab-shape2 {
+    clip-path: path(
+      "M234.091 19.6374C237.915 8.01527 240.305 3.52672 243.412 1.60305C245.882 0.0801527 247.794 0 306.827 0C365.78 0 367.772 0.0801527 370.162 1.60305C373.508 3.60687 375.42 7.29389 379.722 19.5573C382.67 28.2137 383.785 30.458 386.573 33.2634C388.406 35.1069 391.274 37.0305 392.867 37.5916C393.325 37.7232 394.135 37.8488 395.195 37.9618H604C611.18 37.9618 617 43.7821 617 50.9618V682.962C617 690.142 611.18 695.962 604 695.962H0V50.9618C0 43.7821 5.8203 37.9618 13 37.9618H219.096C221.862 37.6398 222.872 37.086 224.77 35.8282C229.072 32.9427 230.586 30.2977 234.091 19.6374Z"
+    );
+    }
+
+  
+    .tab-shape3 {
+        clip-path: path(
+            "M422.091 19.6374C425.915 8.01527 428.305 3.52672 431.412 1.60305C433.882 0.0801528 435.794 0 494.827 0C553.78 0 555.772 0.0801528 558.162 1.60305C561.508 3.60687 563.42 7.29389 567.722 19.5573C570.67 28.2137 571.785 30.458 574.573 33.2634C576.406 35.1069 579.274 37.0305 580.867 37.5916C581.325 37.7232 582.135 37.8488 583.195 37.9619H604C611.18 37.9619 617 43.7822 617 50.9619V682.962C617 690.142 611.18 695.962 604 695.962H0V50.9619C0 43.7822 5.8203 37.9619 13 37.9619H407.096C409.862 37.6399 410.872 37.0861 412.77 35.8282C417.072 32.9427 418.586 30.2977 422.091 19.6374Z"
+        );
+    }
+    
+  
+  .clip-container1 {
+    padding: 10px 0px 0px 0px; /* Adjust as needed to ensure the edges don't get cut */
+    
+}
+.clip-container2 {
+    padding: 5px 0px 0px 5px; /* Adjust as needed to ensure the edges don't get cut */
+    margin: -5px 0 0 -5px;
+}
+.clip-container3 {
+    padding: 5px 10px 0px 10px; /* Adjust as needed to ensure the edges don't get cut */
+    margin: -5px -10px 0 -10px;
+}
+
+  .shape {
+    width: 100%;
+    height: auto; /* Makes the shape responsive */
+    pointer-events: none; /* Prevent clicking the image itself */
+}
+
+.project-image {
+    border-radius: 8px;
+    overflow: hidden; /* Ensures the GIF respects the rounded border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds depth */
+    border: 2px solid #e0e0e0;
+    transform: scale(1.2)
+}
+
+.content {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%; /* Reduce width to make content more constrained */
+    max-width: 300px; /* Set a max-width to prevent overly wide content */
+    text-align: center;
+    color: #333;
+    display: none; /* Hidden by default until opened */
+}
+
+.project-image {
+    width: 100%;
+    margin-bottom: 10px;
+}
+.category-image{
+    width: 40%;
+}
+
+/* Hover Effect - Bring Tab Up Slightly Relative to Its Current Position */
+/* Hover Effect - Bring Tab Up Slightly and Tilt Forward */
+.page:hover {
+    transform: translateY(calc(var(--translateY) - 10px)) rotateX(-5deg) !important; /* Reduce tilt to simulate pulling forward */
+    z-index: 5; /* Bring the hovered page to the front */
+}
+/* Hover Effect - Slightly enlargen the gif*/
+.project-image:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Open State */
+.page.open {
+    transform: translateY(-40vh) !important; /* Adjust the tab height for better mobile viewing */
+    opacity: 1;
+    z-index: 10; /* Bring open page to the front */
+    transition: transform 0.3s ease-in-out; /* Ensure smooth transition */
+  }
+
+/* Hidden State */
+.page.hidden {
+    opacity: 0.8;
+    z-index: inherit;
+    transform: translateY(0) scale(0.95); /* Initial state so it stays consistent */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth fade-in and move */
+}
+
+/* Smooth Transition for Displaying Content */
+.page.open .content {
+    display: block;
+    animation: fadeIn 0.5s ease-in forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+/* Default Desktop Styles */
+.tab-shape1, .tab-shape2, .tab-shape3 {
+    clip-path: path(
+      /* Your original clip path definitions here */
+    );
+}
+@media only screen and (max-width: 768px) {
+    /* Remove hover-specific styles while retaining click functionality */
+    .tab:hover, .clickable-area:hover, .page:hover {
+        transform: none !important;  /* Cancel hover transform effects */
+        box-shadow: none !important;  /* Cancel hover shadow effects */
+        /* Add any other properties you used in hover effects that should be disabled on mobile */
+    }
+
+}
+/* Mobile  */
+@media (max-width: 768px) {
+    .tab-shape1,
+    .tab-shape2,
+    .tab-shape3 {
+        clip-path: none; /* Remove clip-path for mobile view */
+        margin-bottom: 20px;
+    }
+    .file-cabinet {
+        position: relative;
+        width: 600px;
+        height:550px;
+        perspective: 1500px; /* Adding perspective to make it look 3D */
+        transform: rotateX(0deg) scale(.9); /* Rotate to simulate looking down into a cabinet */
+    }
+    .page {
+        transform: none;
+        width: 100%; 
+        margin: 0; 
+        padding: 0; 
+        border-radius: 0; 
+        box-shadow: none; 
+    }
+    .content {
+        position: absolute;
+        top: 7%;
+        left: 50%;
+        color: #333;
+        display: none; /* Hidden by default until opened */
+    }
+    p {
+        font-family: Helvetica, sans-serif;
+        font-weight: bold;
+        max-width: 90%; /* Constrain the paragraph width to reduce stretching */
+        margin: 0px auto; /* Center the paragraph with balanced spacing */
+        line-height: 1.6; /* Add more line spacing for better readability */
+        padding: 0; /* Adds some padding to the text */
+        font-size: .6rem; /* Ensure a comfortable font size */
+    }
+    .clip-container1, .clip-container2, .clip-container3 {
+        padding: 0 !important;
+        margin: 0 auto !important;
+        
+    }
+    .tab-shape1 {
+        position: 0px;
+    }
+    .tab-shape2 {
+        clip-path: polygon(
+            37.94% 2.822%,37.94% 2.822%,38.12% 2.351%,38.287% 1.937%,38.445% 1.578%,38.595% 1.268%,38.739% 1.003%,38.88% 0.781%,39.02% 0.596%,39.16% 0.446%,39.303% 0.325%,39.451% 0.23%,39.451% 0.23%,39.578% 0.171%,39.755% 0.122%,40.039% 0.084%,40.486% 0.055%,41.152% 0.033%,42.093% 0.018%,43.365% 0.008%,45.024% 0.003%,47.127% 0.001%,49.729% 0%,49.729% 0%,52.328% 0.001%,54.428% 0.003%,56.087% 0.008%,57.358% 0.018%,58.299% 0.033%,58.965% 0.055%,59.412% 0.084%,59.695% 0.122%,59.87% 0.171%,59.994% 0.23%,59.994% 0.23%,60.15% 0.325%,60.296% 0.44%,60.436% 0.582%,60.573% 0.755%,60.71% 0.967%,60.853% 1.224%,61.004% 1.53%,61.166% 1.893%,61.345% 2.317%,61.543% 2.81%,61.543% 2.81%,61.678% 3.157%,61.799% 3.454%,61.908% 3.708%,62.01% 3.925%,62.108% 4.11%,62.205% 4.27%,62.305% 4.411%,62.411% 4.539%,62.526% 4.66%,62.654% 4.779%,62.654% 4.779%,62.747% 4.859%,62.849% 4.938%,62.956% 5.015%,63.067% 5.09%,63.178% 5.16%,63.289% 5.224%,63.396% 5.282%,63.497% 5.331%,63.59% 5.372%,63.674% 5.401%,63.674% 5.401%,63.698% 5.407%,63.725% 5.413%,63.756% 5.418%,63.789% 5.424%,63.826% 5.429%,63.865% 5.434%,63.908% 5.44%,63.953% 5.445%,64.001% 5.45%,64.051% 5.455%,97.893% 5.455%,97.893% 5.455%,98.235% 5.479%,98.559% 5.55%,98.861% 5.663%,99.137% 5.815%,99.383% 6.002%,99.593% 6.219%,99.765% 6.464%,99.893% 6.732%,99.972% 7.02%,100% 7.322%,100% 98.132%,100% 98.132%,99.972% 98.435%,99.893% 98.723%,99.765% 98.991%,99.593% 99.235%,99.383% 99.453%,99.137% 99.64%,98.861% 99.792%,98.559% 99.905%,98.235% 99.976%,97.893% 100%,0% 100%,0% 7.322%,0% 7.322%,0.028% 7.02%,0.107% 6.732%,0.235% 6.464%,0.407% 6.219%,0.617% 6.002%,0.863% 5.815%,1.139% 5.663%,1.441% 5.55%,1.765% 5.479%,2.107% 5.455%,35.51% 5.455%,35.51% 5.455%,35.636% 5.44%,35.748% 5.422%,35.848% 5.402%,35.939% 5.379%,36.022% 5.352%,36.102% 5.321%,36.18% 5.285%,36.259% 5.245%,36.341% 5.199%,36.429% 5.148%,36.429% 5.148%,36.626% 5.023%,36.8% 4.894%,36.956% 4.752%,37.099% 4.591%,37.233% 4.404%,37.364% 4.183%,37.495% 3.921%,37.632% 3.612%,37.779% 3.248%,37.94% 2.822%
+        );
+    }
+
+    .tab-shape3 {
+        clip-path: polygon(
+            68.41% 2.822%,68.41% 2.822%,68.59% 2.351%,68.757% 1.937%,68.915% 1.578%,69.065% 1.268%,69.209% 1.003%,69.35% 0.781%,69.49% 0.596%,69.63% 0.446%,69.773% 0.325%,69.921% 0.23%,69.921% 0.23%,70.048% 0.171%,70.225% 0.122%,70.509% 0.084%,70.956% 0.055%,71.622% 0.033%,72.563% 0.018%,73.835% 0.008%,75.494% 0.003%,77.597% 0.001%,80.199% 0%,80.199% 0%,82.798% 0.001%,84.898% 0.003%,86.557% 0.008%,87.828% 0.018%,88.769% 0.033%,89.435% 0.055%,89.882% 0.084%,90.165% 0.122%,90.34% 0.171%,90.464% 0.23%,90.464% 0.23%,90.62% 0.325%,90.766% 0.44%,90.906% 0.582%,91.043% 0.755%,91.18% 0.967%,91.323% 1.224%,91.474% 1.53%,91.636% 1.893%,91.815% 2.317%,92.013% 2.81%,92.013% 2.81%,92.148% 3.157%,92.269% 3.454%,92.378% 3.708%,92.48% 3.925%,92.578% 4.11%,92.675% 4.27%,92.775% 4.411%,92.881% 4.539%,92.996% 4.66%,93.124% 4.779%,93.124% 4.779%,93.217% 4.859%,93.319% 4.938%,93.426% 5.015%,93.537% 5.09%,93.648% 5.16%,93.759% 5.224%,93.866% 5.282%,93.967% 5.331%,94.06% 5.372%,94.144% 5.401%,94.144% 5.401%,94.168% 5.407%,94.195% 5.413%,94.226% 5.418%,94.259% 5.424%,94.296% 5.429%,94.335% 5.434%,94.378% 5.44%,94.423% 5.445%,94.471% 5.45%,94.521% 5.455%,97.893% 5.455%,97.893% 5.455%,98.235% 5.479%,98.559% 5.55%,98.861% 5.663%,99.137% 5.815%,99.383% 6.002%,99.593% 6.219%,99.765% 6.464%,99.893% 6.732%,99.972% 7.02%,100% 7.323%,100% 98.132%,100% 98.132%,99.972% 98.435%,99.893% 98.723%,99.765% 98.991%,99.593% 99.235%,99.383% 99.453%,99.137% 99.64%,98.861% 99.792%,98.559% 99.905%,98.235% 99.976%,97.893% 100%,0% 100%,0% 7.323%,0% 7.323%,0.028% 7.02%,0.107% 6.732%,0.235% 6.464%,0.407% 6.219%,0.617% 6.002%,0.863% 5.815%,1.139% 5.663%,1.441% 5.55%,1.765% 5.479%,2.107% 5.455%,65.98% 5.455%,65.98% 5.455%,66.106% 5.44%,66.218% 5.422%,66.318% 5.402%,66.409% 5.379%,66.492% 5.352%,66.572% 5.321%,66.65% 5.285%,66.729% 5.245%,66.811% 5.199%,66.9% 5.148%,66.9% 5.148%,67.096% 5.023%,67.27% 4.894%,67.426% 4.752%,67.569% 4.591%,67.703% 4.404%,67.834% 4.183%,67.965% 3.921%,68.102% 3.612%,68.249% 3.248%,68.41% 2.822%
+        );
+    }
+    .page.open {
+        transform: translateY(calc(var(--translateY) - 34vh)) !important; /* Pulls the page relative to its initial position */
+        opacity: 1;
+        z-index: 25; /* Bring open page to the front */
+        max-height: calc(100vh - 10vh); /* Keep the open tab within the screen height */
+        overflow: auto; /* Allow content to be scrollable if necessary */
+        transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 0.3s ease-in-out;
+    }
+
+
+    .project-image {
+        transform: scale(.7)
+    }
+    #page1 { z-index: 1; --translateY: 3vh; }
+    #page2 { z-index: 2; --translateY: 4vh;  }
+    #page3 { z-index: 3; --translateY: 6vh;  }
+    #page4 { z-index: 4; --translateY: 8vh;  }
+    #page5 { z-index: 5; --translateY: 10vh;  }
+    #page6 { z-index: 6; --translateY: 12vh;  }
+    #page7 { z-index: 7; --translateY: 14vh;  }
+    #page8 { z-index: 8; --translateY: 16vh;  }
+    #page9 { z-index: 9; --translateY: 18vh;  }
+    #page10 { z-index: 10; --translateY: 20vh;  }
+    #page11 { z-index: 11; --translateY: 22vh;  }
+    #page12 { z-index: 12; --translateY: 24vh;  }
+    #page13 { z-index: 13; --translateY: 26vh; }
+    #page14 { z-index: 14; --translateY: 28vh; }
+    #page15 { z-index: 15; --translateY: 30vh;  }
+    #page16 { z-index: 16; --translateY: 32vh;  }
+    #page17 { z-index: 17; --translateY: 34vh;  }
+    #page18 { z-index: 18; --translateY: 36vh;  }
+    #page19 { z-index: 19; --translateY: 38vh; }
+    #page20 { z-index: 20; --translateY: 40vh;  }
+    #page21 { z-index: 21; --translateY: 42vh;  }
+    #page22 { z-index: 22; --translateY: 44vh;  }
+    #page23 { z-index: 23; --translateY: 46vh;  }
+    #page24 { z-index: 24; --translateY: 48vh;  }
+
+
+
+   
+    #page1.open { transform: translateY(-240px) !important; }
+    #page2.open { transform: translateY(-225px) !important; }
+    #page3.open { transform: translateY(-210px) !important; }
+    #page4.open { transform: translateY(-195px) !important; }
+    #page5.open { transform: translateY(-180px) !important; }
+    #page6.open { transform: translateY(-165px) !important; }
+    #page7.open { transform: translateY(-150px) !important; }
+    #page8.open { transform: translateY(-135px) !important; }
+    #page9.open { transform: translateY(-120px) !important; }
+    #page10.open { transform: translateY(-105px) !important; }
+    #page11.open { transform: translateY(-90px) !important; }
+    #page12.open { transform: translateY(-75px) !important; }
+    #page13.open { transform: translateY(-60px) !important; }
+    #page14.open { transform: translateY(-45px) !important; }
+    #page15.open { transform: translateY(-30px) !important; }
+    #page16.open { transform: translateY(-15px) !important; }
+    #page17.open { transform: translateY(0px) !important; }
+    #page18.open { transform: translateY(15px) !important; }
+    #page19.open { transform: translateY(30px) !important; }
+    #page20.open { transform: translateY(45px) !important; }
+    #page21.open { transform: translateY(60px) !important; }
+    #page22.open { transform: translateY(75px) !important; }
+    #page23.open { transform: translateY(90px) !important; }
+    #page24.open { transform: translateY(105px) !important; }
+      
+      
+}
+@media (max-width: 768px) {
+    .page:hover {
+        transform: none;
+    }
+}
+@media (max-width: 768px) {
+    #page1,
+    #page10,
+    #page20 {
+        cursor: not-allowed; /* Show that it's inactive */
+        opacity: 0.8; /* Make them look inactive */
+        transform: translateY(var(--translateY)) !important; /* Ensure they remain in the correct position */
+        transition: none !important; /* Disable any transition animations */
+    }
+}
