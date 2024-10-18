@@ -256,9 +256,10 @@ p {
     .file-cabinet {
         position: relative;
         width: 600px;
-        height:75vh;
+        height:70vh;
         perspective: 1500px; /* Adding perspective to make it look 3D */
         transform: rotateX(0deg) scale(.9); /* Rotate to simulate looking down into a cabinet */
+        zoom: 0.875;
     }
     .page {
         transform: none;
