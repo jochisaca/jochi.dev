@@ -279,10 +279,10 @@ p {
         font-family: Helvetica, sans-serif;
         font-weight: bold;
         max-width: 90%; /* Constrain the paragraph width to reduce stretching */
-        margin: 0px auto; /* Center the paragraph with balanced spacing */
+        margin: -9px auto; /* Center the paragraph with balanced spacing */
         line-height: 1.6; /* Add more line spacing for better readability */
         padding: 0; /* Adds some padding to the text */
-        font-size: .6rem; /* Ensure a comfortable font size */
+        font-size: .5rem; /* Ensure a comfortable font size */
     }
     .clip-container1, .clip-container2, .clip-container3 {
         padding: 0 !important;
@@ -314,7 +314,7 @@ p {
 
 
     .project-image {
-        transform: scale(.7)
+        transform: scale(.8)
     }
     #page1 { z-index: 1; --translateY: 3vh; }
     #page2 { z-index: 2; --translateY: 4vh;  }
