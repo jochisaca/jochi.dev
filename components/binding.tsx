@@ -9,7 +9,7 @@ export function Binding() {
   return (
     <div
       aria-hidden="true"
-      className="pointer-events-none fixed inset-y-0 left-0 z-30 w-14 sm:w-16 lg:w-20 flex items-start justify-center"
+      className="pointer-events-none fixed inset-y-0 left-0 z-30 w-14 sm:w-16 lg:w-20 hidden sm:flex items-start justify-center"
     >
       <div className="mt-3 flex h-full flex-col items-center gap-5 sm:gap-5">
         {holes.map((i) => (

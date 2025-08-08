@@ -6,9 +6,11 @@ export default function SnapBubuPage() {
   return (
     <main className="relative min-h-dvh w-full bg-[#CDEAF2] text-[#0b0b0b]">
       <Binding />
-      <div className="relative mx-auto max-w-[920px] px-4 md:px-6 lg:px-10 pt-8 pb-24">
+      <div className="relative mx-auto max-w-[920px] pl-4 pr-4 sm:pl-16 sm:pr-6 lg:pl-24 lg:pr-10 pt-8 pb-24">
         <Link href="/" className="text-sm underline">← Back</Link>
-        <h1 className="mt-4 text-[32px] md:text-[40px] font-extrabold tracking-[-0.01em]">SnapBubu</h1>
+        <h1 className="mt-4 text-[32px] md:text-[40px] font-extrabold tracking-[-0.01em]">
+          <a href="https://snapbubu.com" target="_blank" rel="noreferrer" className="underline">SnapBubu</a>
+        </h1>
         <Section title="Role">
           <p>Founder & full-stack developer (mobile + backend)</p>
         </Section>
