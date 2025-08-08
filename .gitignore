@@ -1,0 +1,13 @@
+node_modules/
+.next/
+out/
+.vercel/
+build/
+dist/
+.env*
+pnpm-lock.yaml
+npm-debug.log*
+yarn-*.log*
+.DS_Store
+.idea/
+.vscode/
