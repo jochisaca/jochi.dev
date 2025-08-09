@@ -50,6 +50,7 @@ export default function Page() {
             <li>Clover ↔ Shopify inventory sync and SKU cleanup.</li>
             <li>getui — a curated UI index with Firebase storage and admin tools.</li>
             <li>Automations: small scrapers, queues, and dashboards for real data.</li>
+            <li>Motifs – A daily affirmation web app delivering short, blunt motivational messages on each page load. Built with React, deployed on Vercel, with randomized content delivery.</li>
           </ul>
         </Section>
 
