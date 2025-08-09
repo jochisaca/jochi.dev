@@ -32,9 +32,7 @@ export function Hero() {
         </p>
 
         <p className="mt-5 font-body text-[15px] md:text-[16px] leading-7 text-[#0b0b0b]/85 max-w-[62ch]" style={{ ["textWrap" as any]: "pretty" }}>
-          I design, ship, and iterate fast. Collabio — music producer deals (offers, counter-bids, splits, Stripe). SnapBubu
-          — iOS (React Native) identifies Labubu figures via an AI vector database + custom backend. Other builds — ecommerce
-          + POS sync, UI indexing tools, lightweight scraping pipelines, Firebase-first backends.
+          I design, ship, and iterate fast. My work includes Collabio, a platform for music producers to create deals with offers, counter-bids, revenue splits, and Stripe payments; SnapBubu, an iOS app built with React Native that identifies Labubu figures using an AI vector database and a custom backend; and other projects such as ecommerce and POS synchronization systems, UI indexing tools, lightweight scraping pipelines, and Firebase-first backends.
         </p>
 
         <div className="font-heading mt-8 text-[30px] md:text-[38px] leading-tight tracking-[-0.02em]">
