@@ -27,7 +27,7 @@ export function WorkGrid() {
         <div className="text-sm uppercase tracking-wide text-black/60">Other builds</div>
         <h3 className="mt-1 text-xl font-bold">ecommerce + POS sync, UI indexing tools, light scrapers</h3>
         <p className="mt-2 text-sm text-black/75">
-          Firebase-first backends, small automations, and pragmatic admin dashboards.
+          Implemented full-stack systems integrating Stripe payments, vector-based AI lookups, and seamless POS/e-commerce pipelines.
         </p>
       </div>
     </div>
