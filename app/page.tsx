@@ -57,7 +57,7 @@ export default function Page() {
         {/* About */}
         <Section title="About" className="mt-10 scroll-mt-24" id="about">
           <p className="font-body text-[16px] md:text-[17px] leading-7" style={{ ["textWrap" as any]: "pretty" }}>
-            I’m a self-taught developer focused on React, React Native, and Firebase. I like taking a sketch to production,
+            I’m a self-taught full-stack developer with a strong emphasis on React, React Native, Firebase, robust data modeling, Payments integration, and scalable backend systems. I like taking a sketch to production,
             wiring data models that won’t fight you later, and shipping features that real people use. I completed
             FreeCodeCamp certificates in 2024 and have been building ever since.
           </p>
