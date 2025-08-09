@@ -1,24 +1,32 @@
-import type { Metadata } from 'next'
-import { GeistMono } from 'geist/font/mono'
-import { PT_Serif } from 'next/font/google'
-import './globals.css'
+import type { Metadata } from "next"
+import { GeistMono } from "geist/font/mono"
+import { PT_Serif } from "next/font/google"
+import "./globals.css"
 
 export const metadata: Metadata = {
-  title: 'jochi.dev — Portfolio',
-  description: 'Jochi Saca — portfolio',
+  title: "jochi.dev — Portfolio",
+  description: "Jochi Saca — portfolio",
 }
 
-const serif = PT_Serif({ subsets: ['latin'], weight: ['400','700'], style: ['normal','italic'], display: 'swap', variable: '--font-body' })
+const serif = PT_Serif({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  style: ["normal", "italic"],
+  display: "swap",
+  variable: "--font-body",
+})
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="h-full overflow-x-hidden">
       <head />
-      <body className={`${serif.variable} ${GeistMono.variable}`}>{children}</body>
+      <body
+        className={`${serif.variable} ${GeistMono.variable} min-h-screen overflow-x-hidden antialiased`}
+      >
+        {children}
+      </body>
     </html>
   )
 }
