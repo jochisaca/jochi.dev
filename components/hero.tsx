@@ -27,7 +27,7 @@ export function Hero() {
           className="font-ui mt-3 text-[24px] md:text-[30px] leading-tight tracking-[-0.015em]"
           style={{ ["textWrap" as any]: "balance" }}
         >
-          <span className="italic font-black">React</span> & <span className="italic font-black">React Native</span>{" "}
+          <span className="italic font-black">React / React Native</span> & <span className="italic font-black">Backend Engineer</span>{" "}
           <span className="font-semibold">developer</span>.
         </p>
 
