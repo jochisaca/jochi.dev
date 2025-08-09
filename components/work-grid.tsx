@@ -25,9 +25,9 @@ export function WorkGrid() {
 
       <div className="block rounded-md border border-black/15 bg-white/40 p-4">
         <div className="text-sm uppercase tracking-wide text-black/60">Other builds</div>
-        <h3 className="mt-1 text-xl font-bold">ecommerce + POS sync, UI indexing tools, light scrapers</h3>
+        <h3 className="mt-1 text-xl font-bold">ecommerce + POS sync, UI indexing tools, and custom data-gathering pipelines with Firecrawl and Crawl4AI.</h3>
         <p className="mt-2 text-sm text-black/75">
-          Built pragmatic, scalable back-end architectures using Firebase and REST APIs, paired with automation dashboards and lightweight admin tooling.
+          Built and deployed scalable backends with Firebase, GCP, and Cloud Run — integrating REST APIs, automation workflows, and intuitive admin dashboards.
         </p>
       </div>
     </div>
