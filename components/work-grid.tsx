@@ -27,9 +27,7 @@ export function WorkGrid() {
         <div className="text-sm uppercase tracking-wide text-black/60">Other builds</div>
         <h3 className="mt-1 text-xl font-bold">ecommerce + POS sync, UI indexing tools, light scrapers</h3>
         <p className="mt-2 text-sm text-black/75">
-          – Developed reliable e-commerce and POS synchronization services using automated scrapers and dashboards.
-– Built a UI indexing solution with a lightweight, scalable backend and admin tooling.
-– Architected pragmatic full-stack systems using Firebase for rapid back-end deployment, supplemented by task automation and intuitive admin interfaces.
+          Built pragmatic, scalable back-end architectures using Firebase and REST APIs, paired with automation dashboards and lightweight admin tooling.
         </p>
       </div>
     </div>
