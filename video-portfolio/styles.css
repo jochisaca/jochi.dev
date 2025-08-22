@@ -1,0 +1,1130 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: white;
+    background-color: #000;
+    overflow-x: hidden;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 33.333%;
+    background: #000;
+    color: white;
+    padding: 2rem;
+    position: fixed;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+}
+
+.logo {
+    text-align: left;
+    margin-bottom: 0.2rem;
+}
+
+.logo-icon {
+    margin-bottom: 1.5rem;
+    width: 100%;
+    position: relative;
+    height: 120px;
+}
+
+.jochi-logo {
+    width: 100%;
+    height: auto;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.3s ease;
+}
+
+.jochi-logo-white {
+    opacity: 1;
+}
+
+.jochi-logo-black {
+    opacity: 0;
+}
+
+.logo-icon svg {
+    border-radius: 50%;
+}
+
+.personal-name {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.title {
+    font-size: 1rem;
+    font-weight: 300;
+    color: white;
+    text-transform: lowercase;
+    margin-bottom: 2rem;
+}
+
+/* Bio Section */
+.bio-section {
+    margin-bottom: 2.5rem;
+}
+
+.bio-text {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 400;
+    text-align: left;
+    margin: 0 0 1.2rem 0;
+}
+
+.bio-text:last-child {
+    margin-bottom: 0;
+}
+
+
+
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: auto;
+}
+
+.link {
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 400;
+    transition: opacity 0.3s ease;
+}
+
+.link:hover {
+    opacity: 0.7;
+}
+
+.link.email {
+    text-decoration: underline;
+}
+
+/* Main Content Styles */
+.main-content {
+    flex: 1;
+    margin-left: 33.333%;
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 1.5rem 1rem 6rem;
+    max-width: 980px;
+}
+
+.content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+}
+
+.header-content {
+    display: flex;
+    align-items: baseline;
+}
+
+.header-content .section-title-large {
+    font-size: 2rem;
+    margin-bottom: 0;
+}
+
+.header-content .section-subtitle {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 400;
+    margin-left: 1rem;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: white;
+    text-transform: lowercase;
+}
+
+/* Toggle Switch */
+.toggle-switch {
+    position: relative;
+    width: 40px;
+    height: 20px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-switch label {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: 0.3s;
+    border-radius: 20px;
+}
+
+.toggle-switch label:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: 0.3s;
+    border-radius: 50%;
+}
+
+.toggle-switch input:checked + label {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.toggle-switch input:checked + label:before {
+    transform: translateX(20px);
+}
+
+/* Work Grid */
+.work-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 800px;
+    width: 100%;
+    margin-bottom: 2rem;
+    min-height: 200px; /* Prevent layout shift */
+}
+
+.work-item {
+    background: transparent;
+    border-radius: 0;
+    overflow: hidden;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 1000px; /* Large enough to contain content */
+    margin-bottom: 2rem;
+}
+
+.work-item:last-child {
+    margin-bottom: 0;
+}
+
+.work-item:hover {
+    transform: translateY(-5px);
+}
+
+.work-item.fade-out {
+    opacity: 0;
+    transform: translateY(15px);
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    max-height: 0;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.work-item.fade-out::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, 
+        rgba(0, 0, 0, 0.8) 0%, 
+        rgba(0, 0, 0, 0.4) 50%, 
+        rgba(0, 0, 0, 0) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 10;
+    animation: gradientFadeIn 0.3s ease-out forwards;
+}
+
+@keyframes gradientFadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.work-item.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.work-item.fade-in::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, 
+        rgba(0, 0, 0, 0) 0%, 
+        rgba(0, 0, 0, 0.2) 50%, 
+        rgba(0, 0, 0, 0) 100%);
+    opacity: 1;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    z-index: 5;
+    animation: fadeInGradient 0.4s ease-out forwards;
+}
+
+@keyframes fadeInGradient {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.work-image {
+    position: relative;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    aspect-ratio: 16/9;
+    width: 66.67%;
+    margin-left: auto;
+    margin-right: auto;
+    outline: none;
+    border: none;
+}
+
+.work-image:hover {
+    outline: none;
+    border: none;
+}
+
+.work-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.work-item:hover .work-image img {
+    transform: scale(1.05);
+}
+
+/* Project Overlay */
+.project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+}
+
+.work-item:hover .project-overlay {
+    opacity: 1;
+}
+
+.view-button {
+    background: rgba(255, 255, 255, 0.9);
+    color: black;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.view-button:hover {
+    background: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* Project Thumbnails */
+.project-thumbnail {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+}
+
+.project-preview-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+}
+
+.project-initial {
+    font-size: 3rem;
+    font-weight: 700;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    text-transform: uppercase;
+    display: none; /* Hidden by default, shown when image fails to load */
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* Marquee Section */
+.marquee-section {
+    margin-top: 3rem;
+    padding: 2rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.marquee-container {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+}
+
+.marquee-track {
+    display: flex;
+    width: calc(200px * 12); /* 4 logos × 3 sets = 12 logos */
+    animation: marqueeScroll 20s linear infinite;
+}
+
+.marquee-logo {
+    width: 200px;
+    height: 60px;
+    object-fit: contain;
+    margin: 0 2rem;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+    flex-shrink: 0;
+}
+
+.marquee-logo:hover {
+    opacity: 1;
+}
+
+@keyframes marqueeScroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Light theme marquee adjustments */
+body.light-theme .marquee-section {
+    border-top-color: rgba(0, 0, 0, 0.1);
+    border-bottom-color: rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme .marquee-logo {
+    opacity: 0.6;
+}
+
+body.light-theme .marquee-logo:hover {
+    opacity: 0.9;
+}
+
+.work-info {
+    padding: 0;
+    width: 66.67%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.work-title {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: white;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+}
+
+.work-artist {
+    font-size: 0.9rem;
+    color: white;
+    margin-bottom: 0.5rem;
+    opacity: 0.8;
+}
+
+.work-role {
+    font-size: 0.8rem;
+    color: white;
+    opacity: 0.7;
+    font-weight: 400;
+}
+
+/* Project Count */
+.project-count {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+    max-width: 800px;
+}
+
+.project-count p {
+    font-size: 0.9rem;
+    color: white;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.project-count span {
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+/* Video Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 1000px;
+    background: #000;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.close-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 2001;
+    background: rgba(0, 0, 0, 0.5);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+.close-modal:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+}
+
+.video-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Project Modal Styles */
+.project-details {
+    padding: 2rem;
+    color: white;
+}
+
+.project-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.project-logo {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-logo-initial {
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    text-transform: uppercase;
+}
+
+.project-title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.project-category {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.project-body {
+    margin-bottom: 2rem;
+}
+
+.project-description {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2rem;
+}
+
+.project-tech h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.tech-tag {
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.9);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.project-link {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.project-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Light theme modal adjustments */
+body.light-theme .project-details {
+    color: #000;
+}
+
+body.light-theme .project-title,
+body.light-theme .project-tech h3 {
+    color: #000;
+}
+
+body.light-theme .project-description {
+    color: rgba(0, 0, 0, 0.9);
+}
+
+body.light-theme .project-category {
+    color: rgba(0, 0, 0, 0.7);
+}
+
+body.light-theme .project-link {
+    color: #000;
+    background: rgba(0, 0, 0, 0.1);
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+body.light-theme .project-link:hover {
+    background: rgba(0, 0, 0, 0.2);
+    border-color: rgba(0, 0, 0, 0.4);
+}
+
+body.light-theme .tech-tag {
+    background: rgba(0, 0, 0, 0.1);
+    color: rgba(0, 0, 0, 0.9);
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+body.light-theme .project-header {
+    border-bottom-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Light theme styles */
+body.light-theme {
+    background-color: #fff;
+    color: #000;
+}
+
+body.light-theme .sidebar {
+    background: #fff;
+    color: #000;
+}
+
+body.light-theme .main-content {
+    background: #fff;
+    color: #000;
+}
+
+/* Logo transition for light theme */
+body.light-theme .jochi-logo-white {
+    opacity: 0;
+}
+
+body.light-theme .jochi-logo-black {
+    opacity: 1;
+}
+
+body.light-theme .personal-name,
+body.light-theme .title,
+body.light-theme .link,
+body.light-theme .section-title,
+body.light-theme .work-title,
+body.light-theme .work-artist,
+body.light-theme .work-role,
+body.light-theme .project-count p,
+body.light-theme .filter-title {
+    color: #000;
+}
+
+body.light-theme .bio-text {
+    color: rgba(0, 0, 0, 0.75);
+}
+
+
+
+/* Light theme gradient for fade-out */
+body.light-theme .work-item.fade-out::after {
+    background: linear-gradient(to bottom, 
+        rgba(255, 255, 255, 0.8) 0%, 
+        rgba(255, 255, 255, 0.4) 50%, 
+        rgba(255, 255, 255, 0) 100%);
+    animation: gradientFadeIn 0.3s ease-out forwards;
+}
+
+/* Light theme gradient for fade-in */
+body.light-theme .work-item.fade-in::before {
+    background: linear-gradient(to bottom, 
+        rgba(255, 255, 255, 0) 0%, 
+        rgba(255, 255, 255, 0.2) 50%, 
+        rgba(255, 255, 255, 0) 100%);
+}
+
+/* Toggle switch colors for light theme */
+body.light-theme .toggle-switch label {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+body.light-theme .toggle-switch label:before {
+    background-color: #000;
+}
+
+body.light-theme .toggle-switch input:checked + label {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding: 1.5rem;
+    }
+
+    .logo-icon {
+        height: 120px;
+        margin-bottom: 1rem;
+        width: 100%;
+    }
+
+    .jochi-logo {
+        position: absolute;
+        width: 100%;
+        height: auto;
+    }
+
+    .logo {
+        margin-bottom: 1rem;
+    }
+
+    .title {
+        margin-bottom: 1.2rem;
+    }
+
+    .bio-section {
+        margin-bottom: 2rem;
+    }
+
+    .bio-text {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+    }
+
+
+
+    .links {
+        margin-top: 0;
+        gap: 0.75rem;
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 1.5rem 1rem 6rem;
+        max-width: none;
+    }
+
+    .container {
+        flex-direction: column;
+    }
+
+    .work-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .content-header {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+
+    .modal-content {
+        width: 95%;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        padding: 1rem;
+    }
+
+    .logo-icon {
+        height: 120px;
+        margin-bottom: 0.75rem;
+        width: 100%;
+    }
+
+    .jochi-logo {
+        position: absolute;
+        width: 100%;
+        height: auto;
+    }
+
+    .logo {
+        margin-bottom: 0.5rem;
+    }
+
+    .title {
+        margin-bottom: 0.75rem;
+    }
+
+    .bio-section {
+        margin-bottom: 1.8rem;
+    }
+
+    .bio-text {
+        font-size: 0.85rem;
+        line-height: 1.5;
+        margin-bottom: 0.9rem;
+    }
+
+
+
+    .links {
+        gap: 0.5rem;
+    }
+
+    .main-content {
+        padding: 1rem 1rem 6rem;
+        max-width: none;
+    }
+
+    .work-grid {
+        gap: 1rem;
+    }
+
+    .work-title {
+        font-size: 1rem;
+    }
+
+    .work-artist {
+        font-size: 0.8rem;
+    }
+
+    .play-button {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+
+    .category-badge {
+        font-size: 0.6rem;
+        padding: 0.2rem 0.5rem;
+    }
+}
+
+/* New Section Styles */
+.section-title-large {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0;
+    line-height: 1.1;
+}
+
+.section-subtitle {
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 400;
+    margin-left: 1rem;
+}
+
+.section-header {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 3rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.selected-work-section,
+.selected-extras-section,
+.about-section,
+.strengths-section,
+.skills-section,
+.contact-section {
+    margin-bottom: 4rem;
+    max-width: 800px;
+}
+
+.extras-content {
+    margin-top: 2rem;
+}
+
+.extras-list {
+    list-style: disc;
+    padding-left: 1.5rem;
+    margin: 0;
+}
+
+.extras-list li {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.about-content,
+.strengths-content,
+.skills-content,
+.contact-content {
+    margin-top: 2rem;
+    max-width: 800px;
+}
+
+.about-content p,
+.strengths-content p,
+.contact-content p {
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.skills-text {
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+}
+
+.inline-link {
+    color: #60a5fa;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.inline-link:hover {
+    color: #93c5fd;
+}
+
+/* Light theme adjustments for new sections */
+body.light-theme .section-title-large {
+    color: #000;
+}
+
+body.light-theme .section-subtitle {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+body.light-theme .section-header {
+    border-bottom-color: rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme .extras-list li,
+body.light-theme .about-content p,
+body.light-theme .strengths-content p,
+body.light-theme .contact-content p {
+    color: rgba(0, 0, 0, 0.9);
+}
+
+body.light-theme .skills-text {
+    color: rgba(0, 0, 0, 0.9);
+}
+
+body.light-theme .inline-link {
+    color: #2563eb;
+}
+
+body.light-theme .inline-link:hover {
+    color: #1d4ed8;
+}
+
+/* Project Modal Detailed Sections */
+.project-section {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.project-section:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.project-section-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-family: inherit;
+}
+
+.project-section-content {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+}
+
+.project-how-it-works {
+    list-style: disc;
+    padding-left: 1.5rem;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.project-how-it-works li {
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
+.project-link-container {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+/* Light theme modal section adjustments */
+body.light-theme .project-section {
+    border-bottom-color: rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme .project-section-title {
+    color: #000;
+}
+
+body.light-theme .project-section-content,
+body.light-theme .project-how-it-works li {
+    color: rgba(0, 0, 0, 0.9);
+}
+
+body.light-theme .project-how-it-works {
+    color: rgba(0, 0, 0, 0.9);
+}
+
+body.light-theme .project-link-container {
+    border-top-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Smooth transitions */
+* {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}

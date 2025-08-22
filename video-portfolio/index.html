@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jochi.dev — React & Backend Engineer</title>
+    <meta name="description" content="Jochi Saca — portfolio">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/js-circle.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Left Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <div class="logo-icon">
+                    <img src="jochi-js-logo-1.png" alt="JOCHI Logo" class="jochi-logo jochi-logo-white">
+                    <img src="jochi-js-logo-1-black.png" alt="JOCHI Logo" class="jochi-logo jochi-logo-black">
+                </div>
+                <p class="title"><b><i>React / React Native</i> & <i>Backend</i> Engineer.</b></p>
+            </div>
+
+            <!-- Bio Section -->
+            <div class="bio-section">
+                <p class="bio-text">
+                    I design, ship, and iterate fast. My work includes Collabio, a platform for music producers to create deals with offers, counter-bids, revenue splits, and Stripe payments; SnapBubu, an iOS app built with React Native that identifies Labubu figures using an AI vector database and a custom backend; and other projects such as ecommerce and POS synchronization systems, UI indexing tools, lightweight scraping pipelines, and Firebase-first backends.
+                </p>
+            </div>
+
+
+
+            <div class="links">
+                <a href="https://linkedin.com/in/jochisaca" class="link">linkedin</a>
+                <a href="https://github.com/jochisaca" class="link">github</a>
+                <a href="mailto:jochisaca@gmail.com" class="link email">email for inquiries</a>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="content-header">
+                <div class="header-content">
+                    <h1 class="section-title-large">Selected Work</h1>
+                    <span class="section-subtitle">2024–2025</span>
+                </div>
+                <div class="toggle-switch">
+                    <input type="checkbox" id="theme-toggle">
+                    <label for="theme-toggle"></label>
+                </div>
+            </header>
+
+            <!-- Selected Work Section -->
+            <section class="selected-work-section">
+                <div class="work-grid" id="work-grid">
+                    <!-- Projects will be dynamically populated here -->
+                </div>
+            </section>
+
+            <!-- Selected Extras Section -->
+            <section class="selected-extras-section">
+                <h2 class="section-title-large">Selected extras</h2>
+                <div class="extras-content">
+                    <ul class="extras-list">
+                        <li>Clover ↔ Shopify inventory sync and SKU cleanup.</li>
+                        <li>getui — a curated UI index with Firebase storage and admin tools.</li>
+                        <li>Automations: small scrapers, queues, and dashboards for real data.</li>
+                        <li>Motifs – A daily affirmation web app delivering short motivational messages on each page load. Built with React, deployed on Vercel, with randomized content delivery.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section class="about-section">
+                <h2 class="section-title-large">About</h2>
+                <div class="about-content">
+                    <p>I'm a self-taught full-stack developer with a strong emphasis on React, React Native, Firebase, robust data modeling, Payments integration, and scalable backend systems. I like taking a sketch to production, wiring data models that won't fight you later, and shipping features that real people use. I completed FreeCodeCamp certificates in 2024 and have been building ever since.</p>
+                    <p>Before coding full-time, I directed and produced music videos and commercial projects for major labels and brands — <a href="https://www.jochisaca.com" target="_blank" class="inline-link">see my video work here</a>.</p>
+                </div>
+            </section>
+
+            <!-- Strengths Section -->
+            <section class="strengths-section">
+                <h2 class="section-title-large">Strengths</h2>
+                <div class="strengths-content">
+                    <p>Product-minded engineering, rapid MVPs, clean data flows, pragmatic AI, payments, and admin tooling. Based in Miami.</p>
+                </div>
+            </section>
+
+            <!-- Skills Section -->
+            <section class="skills-section">
+                <h2 class="section-title-large">Skills</h2>
+                <div class="skills-content">
+                    <p class="skills-text">React / React Native • TypeScript/JavaScript • Firebase (Auth, Firestore, Storage, Functions) • Stripe • Qdrant / vector search • Node • Playwright • Cloud storage/CDN • Basic Docker • CI/CD</p>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section class="contact-section">
+                <h2 class="section-title-large">Contact</h2>
+                <div class="contact-content">
+                    <p>Let's build something useful. <a href="https://linkedin.com/in/jochisaca" target="_blank" class="inline-link">LinkedIn</a> • <a href="mailto:jochisaca@gmail.com" class="inline-link">Email</a> • <a href="https://github.com/jochisaca" target="_blank" class="inline-link">GitHub</a></p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Project Modal -->
+    <div class="modal" id="project-modal">
+        <div class="modal-content">
+            <!-- Content will be populated by JavaScript -->
+        </div>
+    </div>
+
+    <script>
+        // Dev project data
+        const allProjects = [
+            {
+                id: 'collabio',
+                title: 'Collabio',
+                description: 'A React platform for paid music collaborations',
+                category: 'Web Application',
+                technologies: ['React', 'Firebase', 'Stripe'],
+                thumbnailImage: 'images/collabio-preview.jpg', // Website screenshot
+                thumbnailColor: '#6366f1', // Fallback color
+                link: 'https://collabio.xyz',
+                role: 'Founder & full-stack developer',
+                whatItIs: 'A collaboration marketplace for producers. Create offers, counter, lock in splits, and get paid—without email chains or guesswork.',
+                howItWorks: [
+                    'Offers & negotiation: bids, counter-offers, expirations, status workflow',
+                    'Contracts baked in: royalty splits and deliverables as first-class fields',
+                    'Payments: Stripe Checkout + split payouts on sales',
+                    'Sales: sell beats; revenue auto-allocates per agreed splits',
+                    'Stack: React, Firebase (Auth, Firestore, Storage, Functions), Stripe'
+                ],
+                whyItMatters: 'Producers work faster, deals are clear, and revenue sharing is automatic.'
+            },
+            {
+                id: 'snapbubu',
+                title: 'SnapBubu',
+                description: 'React Native iOS app that recognizes Labubu collectibles',
+                category: 'Mobile Application',
+                technologies: ['React Native', 'AI', 'Firebase'],
+                thumbnailImage: 'images/snapbubu-preview.jpg', // App screenshot
+                thumbnailColor: '#10b981', // Fallback color
+                link: 'https://snapbubu.com',
+                role: 'Founder & full-stack developer (mobile + backend)',
+                whatItIs: 'An iOS app that identifies Labubu figures from a photo and helps collectors track sets.',
+                howItWorks: [
+                    'On-device → backend: image uploads to a custom inference API',
+                    'Vector search: embeddings + AI vector database for nearest-match results',
+                    'Collection: log items, view series, see what you\'re missing',
+                    'Stack: React Native, Firebase, custom AI service, vector DB (Qdrant), queueing & caching'
+                ],
+                whyItMatters: 'Fast ID and clean record-keeping for a niche but passionate community.'
+            },
+            {
+                id: 'getui',
+                title: 'getui',
+                description: 'A curated UI index with Firebase storage and admin tools',
+                category: 'Web Application',
+                technologies: ['React', 'Firebase', 'UI/UX'],
+                thumbnailImage: 'images/getui-preview.jpg', // Website screenshot
+                thumbnailColor: '#f59e0b', // Fallback color
+                link: '#',
+                role: 'Developer',
+                whatItIs: 'A curated UI index with Firebase storage and admin tools.',
+                howItWorks: [
+                    'Firebase storage for UI component management',
+                    'Admin tools for content organization',
+                    'React frontend for browsing and searching',
+                    'Stack: React, Firebase (Auth, Firestore, Storage)'
+                ],
+                whyItMatters: 'Streamlined UI component management and discovery.'
+            },
+            {
+                id: 'other-builds',
+                title: 'Other builds',
+                description: 'ecommerce + POS sync, UI indexing tools, light scrapers',
+                category: 'Various Applications',
+                technologies: ['React', 'Firebase', 'Automation'],
+                thumbnailImage: 'images/other-builds-preview.jpg', // Representative image
+                thumbnailColor: '#8b5cf6', // Fallback color
+                link: '#',
+                role: 'Full-stack developer',
+                whatItIs: 'Various automation tools and integrations including ecommerce systems and data processing.',
+                howItWorks: [
+                    'Ecommerce + POS synchronization systems',
+                    'Lightweight scraping pipelines',
+                    'Firebase-first backend architecture',
+                    'Small automations and admin dashboards',
+                    'Stack: React, Firebase, automation tools'
+                ],
+                whyItMatters: 'Efficient data processing and streamlined business operations.'
+            }
+        ];
+
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        
+        themeToggle.addEventListener('change', function() {
+            document.body.classList.toggle('light-theme');
+        });
+
+        // Create project HTML
+        function createProjectHTML(project) {
+            return `
+                <article class="work-item" id="${project.id}" data-technologies="${project.technologies.join(',')}">
+                    <div class="work-image">
+                        <div class="project-thumbnail">
+                            <img src="${project.thumbnailImage}" alt="${project.title} preview" class="project-preview-image" onerror="this.style.display='none'; this.parentElement.style.backgroundColor='${project.thumbnailColor}'; this.parentElement.querySelector('.project-initial').style.display='flex';">
+                            <span class="project-initial">${project.title.charAt(0)}</span>
+                        </div>
+                        <div class="project-overlay" onclick="openProject('${project.id}')">
+                            <div class="view-button">View Details</div>
+                        </div>
+                    </div>
+                    <div class="work-info">
+                        <h3 class="work-title">${project.title}</h3>
+                        <p class="work-artist">${project.description}</p>
+                        <p class="work-role">Tech: ${project.technologies.join(', ')}</p>
+                    </div>
+                </article>
+            `;
+        }
+
+        // Render all projects initially (all will be in DOM)
+        function renderAllProjects() {
+            const workGrid = document.getElementById('work-grid');
+            workGrid.innerHTML = allProjects.map(createProjectHTML).join('');
+        }
+
+        // Initial render
+        document.addEventListener('DOMContentLoaded', function() {
+            renderAllProjects();
+        });
+
+        // Project modal functionality
+        function openProject(projectId) {
+            const project = allProjects.find(p => p.id === projectId);
+            if (!project) return;
+
+            const modal = document.getElementById('project-modal');
+            const modalContent = modal.querySelector('.modal-content');
+
+            modalContent.innerHTML = `
+                <span class="close-modal">&times;</span>
+                <div class="project-details">
+                    <div class="project-header">
+                        <div class="project-logo" style="background-color: ${project.thumbnailColor};">
+                            <span class="project-logo-initial">${project.title.charAt(0)}</span>
+                        </div>
+                        <div>
+                            <h2 class="project-title">${project.title}</h2>
+                            <p class="project-category">${project.category}</p>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <section class="project-section">
+                            <h3 class="project-section-title">Role</h3>
+                            <p class="project-section-content">${project.role}</p>
+                        </section>
+
+                        <section class="project-section">
+                            <h3 class="project-section-title">What it is</h3>
+                            <p class="project-section-content">${project.whatItIs}</p>
+                        </section>
+
+                        <section class="project-section">
+                            <h3 class="project-section-title">How it works</h3>
+                            <ul class="project-how-it-works">
+                                ${project.howItWorks.map(item => `<li>${item}</li>`).join('')}
+                            </ul>
+                        </section>
+
+                        <section class="project-section">
+                            <h3 class="project-section-title">Why it matters</h3>
+                            <p class="project-section-content">${project.whyItMatters}</p>
+                        </section>
+
+                        ${project.link !== '#' ? `<div class="project-link-container"><a href="${project.link}" target="_blank" class="project-link">View Project →</a></div>` : ''}
+                    </div>
+                </div>
+            `;
+
+            modal.style.display = 'flex';
+
+            // Reattach close event listener
+            modalContent.querySelector('.close-modal').addEventListener('click', closeModal);
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('project-modal');
+            modal.style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('project-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
