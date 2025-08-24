@@ -247,52 +247,108 @@ body {
 /* Small Tablets: 768-899px */
 @media (max-width: 768px) {
     .work-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+        grid-template-columns: repeat(2, 1fr); /* Keep 2 columns */
+        gap: 1rem; /* Slightly larger gap for bigger images */
         max-width: none;
         width: 100%;
         margin: 0 auto 2rem auto;
-        justify-items: center;
+        justify-items: stretch; /* Stretch to fill available space */
     }
 
     .work-item {
         width: 100%;
-        max-width: 400px;
-        margin: 0 auto 2rem auto;
+        max-width: 220px; /* Increased width for bigger images */
+        margin: 0 auto;
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: center; /* Center align for cleaner look */
+        text-align: center; /* Center align all text */
     }
 
     .work-image {
         width: 100%;
-        max-width: 350px;
-        margin: 0 auto;
+        max-width: 200px; /* Bigger images for mobile */
+        margin: 0;
     }
 
-    .work-info {
-        width: 100%;
-        padding: 0;
+    /* Hide only artist and role text on mobile - keep titles visible */
+    .work-artist,
+    .work-role {
+        display: none;
+    }
+
+    /* Style the visible title for mobile */
+    .work-title {
+        font-size: 0.8rem;
+        margin-bottom: 0;
+        line-height: 1.2;
         text-align: center;
+        color: white; /* Default dark theme color */
+    }
+
+    /* Light theme title color for mobile */
+    body.light-theme .work-title {
+        color: #000;
     }
 }
 
 /* Mobile: 480px and below */
 @media (max-width: 480px) {
     .work-grid {
-        gap: 1rem;
+        grid-template-columns: repeat(2, 1fr); /* Keep 2 columns */
+        gap: 0.5rem; /* Even smaller gap for very small screens */
         max-width: none;
         width: 100%;
     }
 
     .work-item {
-        margin-bottom: 1.5rem;
-        max-width: 350px;
+        margin-bottom: 0.75rem;
+        max-width: 150px; /* Even smaller for very small screens */
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center align for cleaner look */
+        text-align: center; /* Center align all text */
     }
 
-    .work-info {
-        padding: 0 0.5rem;
+    .work-image {
+        width: 100%;
+        max-width: 140px;
+        margin: 0;
+    }
+
+    /* Hide only artist and role text on mobile - keep titles visible */
+    .work-artist,
+    .work-role {
+        display: none;
+    }
+
+    /* Style the visible title for mobile */
+    .work-title {
+        font-size: 0.75rem; /* Smaller for very small screens */
+        margin-bottom: 0;
+        line-height: 1.1;
         text-align: center;
+        color: white; /* Default dark theme color */
+    }
+
+    /* Light theme title color for mobile */
+    body.light-theme .work-title {
+        color: #000;
+    }
+
+    /* Ensure marquee doesn't overflow on mobile */
+    .marquee-track {
+        width: calc(160px * 16);
+        animation-duration: 12s;
+    }
+
+    @keyframes marqueeScroll {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(calc(-160px * 4));
+        }
     }
 }
 
@@ -1124,13 +1180,14 @@ body.light-theme .toggle-switch input:checked + label {
     background-color: rgba(0, 0, 0, 0.4);
 }
 
-/* Mobile Responsive Design */
+/* Mobile Responsive Design - Container and Layout */
 @media (max-width: 768px) {
     .sidebar {
         width: 100%;
         height: auto;
         position: relative;
         padding: 1.5rem;
+        margin-bottom: 2rem;
     }
 
     .logo-icon {
@@ -1163,26 +1220,21 @@ body.light-theme .toggle-switch input:checked + label {
         margin-bottom: 1rem;
     }
 
-
-
     .links {
         margin-top: 0;
         gap: 0.75rem;
     }
 
     .main-content {
-        margin-left: 0;
+        margin-left: 0 !important;
         padding: 1.5rem 1rem 6rem;
         max-width: none;
+        width: 100%;
     }
 
     .container {
         flex-direction: column;
-    }
-
-    .work-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+        min-height: auto;
     }
 
     .content-header {
