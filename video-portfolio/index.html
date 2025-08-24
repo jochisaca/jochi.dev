@@ -20,7 +20,7 @@
                     <img src="jochi-js-logo-1.png" alt="JOCHI Logo" class="jochi-logo jochi-logo-white">
                     <img src="jochi-js-logo-1-black.png" alt="JOCHI Logo" class="jochi-logo jochi-logo-black">
                 </div>
-                <p class="title"><b><i>React / React Native</i> & <i>Backend</i> Engineer.</b></p>
+                <h3 class="title"><b><i>React / React Native</i> & <i>Backend</i> Engineer.</b></h3>
             </div>
 
             <!-- Bio Section -->
@@ -56,6 +56,53 @@
             <section class="selected-work-section">
                 <div class="work-grid" id="work-grid">
                     <!-- Projects will be dynamically populated here -->
+                </div>
+            </section>
+
+            <!-- Logo Marquee Section -->
+            <section class="logo-marquee-section">
+                <div class="marquee-container">
+                    <div class="marquee-track">
+                        <!-- First set of logos -->
+                        <div class="marquee-logo">
+                            <img src="logos/collabio.svg" alt="Collabio" class="logo-image">
+                        </div>
+                        <div class="marquee-logo">
+                            <img src="logos/snapbubu-icon.png" alt="SnapBubu" class="logo-image">
+                        </div>
+                        <div class="marquee-logo">
+                            <img src="logos/getui-logo.png" alt="getui" class="logo-image">
+                        </div>
+                        <div class="marquee-logo chum-logo">
+                            <img src="logos/chum-black-eclipse.png" alt="Chum" class="logo-image">
+                        </div>
+                        <!-- Duplicate set for seamless loop -->
+                        <div class="marquee-logo">
+                            <img src="logos/collabio.svg" alt="Collabio" class="logo-image">
+                        </div>
+                        <div class="marquee-logo">
+                            <img src="logos/snapbubu-icon.png" alt="SnapBubu" class="logo-image">
+                        </div>
+                        <div class="marquee-logo">
+                            <img src="logos/getui-logo.png" alt="getui" class="logo-image">
+                        </div>
+                        <div class="marquee-logo chum-logo">
+                            <img src="logos/chum-black-eclipse.png" alt="Chum" class="logo-image">
+                        </div>
+                        <!-- Third set for extra smoothness -->
+                        <div class="marquee-logo">
+                            <img src="logos/collabio.svg" alt="Collabio" class="logo-image">
+                        </div>
+                        <div class="marquee-logo">
+                            <img src="logos/snapbubu-icon.png" alt="SnapBubu" class="logo-image">
+                        </div>
+                        <div class="marquee-logo">
+                            <img src="logos/getui-logo.png" alt="getui" class="logo-image">
+                        </div>
+                        <div class="marquee-logo chum-logo">
+                            <img src="logos/chum-black-eclipse.png" alt="Chum" class="logo-image">
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -123,7 +170,7 @@
                 description: 'A React platform for paid music collaborations',
                 category: 'Web Application',
                 technologies: ['React', 'Firebase', 'Stripe'],
-                thumbnailImage: 'images/collabio-preview.jpg', // Website screenshot
+                thumbnailImage: 'screenshots/collabio ss/Screenshot 2025-08-24 at 12.24.17 PM.png', // Updated website screenshot
                 thumbnailColor: '#6366f1', // Fallback color
                 link: 'https://collabio.xyz',
                 role: 'Founder & full-stack developer',
@@ -143,7 +190,7 @@
                 description: 'React Native iOS app that recognizes Labubu collectibles',
                 category: 'Mobile Application',
                 technologies: ['React Native', 'AI', 'Firebase'],
-                thumbnailImage: 'images/snapbubu-preview.jpg', // App screenshot
+                thumbnailImage: 'thumbs/Screenshot 2025-08-24 at 11.46.30 AM.png', // App screenshot
                 thumbnailColor: '#10b981', // Fallback color
                 link: 'https://snapbubu.com',
                 role: 'Founder & full-stack developer (mobile + backend)',
@@ -181,7 +228,7 @@
                 description: 'ecommerce + POS sync, UI indexing tools, light scrapers',
                 category: 'Various Applications',
                 technologies: ['React', 'Firebase', 'Automation'],
-                thumbnailImage: 'images/other-builds-preview.jpg', // Representative image
+                thumbnailImage: 'thumbs/threepepperssauces.com_ (1).png', // Representative image
                 thumbnailColor: '#8b5cf6', // Fallback color
                 link: '#',
                 role: 'Full-stack developer',
@@ -210,8 +257,11 @@
                 <article class="work-item" id="${project.id}" data-technologies="${project.technologies.join(',')}">
                     <div class="work-image">
                         <div class="project-thumbnail">
-                            <img src="${project.thumbnailImage}" alt="${project.title} preview" class="project-preview-image" onerror="this.style.display='none'; this.parentElement.style.backgroundColor='${project.thumbnailColor}'; this.parentElement.querySelector('.project-initial').style.display='flex';">
-                            <span class="project-initial">${project.title.charAt(0)}</span>
+                            <img src="${project.thumbnailImage}" alt="${project.title} preview" class="project-preview-image" onerror="this.style.display='none'; this.parentElement.style.backgroundColor='${project.thumbnailColor}'; ${project.id === 'getui' ? 'this.parentElement.querySelector(\'.project-logo-fallback\').style.display=\'flex\';' : 'this.parentElement.querySelector(\'.project-initial\').style.display=\'flex\';'}">
+                            ${project.id === 'getui' ?
+                                '<div class="project-logo-fallback" style="display: none;"><img src="logos/getui-logo.png" alt="getui logo" class="fallback-logo-image"></div>' :
+                                `<span class="project-initial">${project.title.charAt(0)}</span>`
+                            }
                         </div>
                         <div class="project-overlay" onclick="openProject('${project.id}')">
                             <div class="view-button">View Details</div>
@@ -249,8 +299,8 @@
                 <span class="close-modal">&times;</span>
                 <div class="project-details">
                     <div class="project-header">
-                        <div class="project-logo" style="background-color: ${project.thumbnailColor};">
-                            <span class="project-logo-initial">${project.title.charAt(0)}</span>
+                        <div class="project-logo">
+                            ${getProjectLogo(project.id)}
                         </div>
                         <div>
                             <h2 class="project-title">${project.title}</h2>
@@ -258,6 +308,30 @@
                         </div>
                     </div>
                     <div class="project-body">
+                        ${project.id === 'snapbubu' ? `
+                        <section class="project-screenshots">
+                            <div class="screenshots-grid">
+                                <img src="screenshots/sb1.png" alt="SnapBubu screenshot 1" class="screenshot-image">
+                                <img src="screenshots/sb2.png" alt="SnapBubu screenshot 2" class="screenshot-image">
+                                <img src="screenshots/sb3.png" alt="SnapBubu screenshot 3" class="screenshot-image">
+                                <img src="screenshots/sb4.png" alt="SnapBubu screenshot 4" class="screenshot-image">
+                                <img src="screenshots/sb5.png" alt="SnapBubu screenshot 5" class="screenshot-image">
+                                <img src="screenshots/sb6.png" alt="SnapBubu screenshot 6" class="screenshot-image">
+                            </div>
+                        </section>
+                        ` : ''}
+
+                        ${project.id === 'collabio' ? `
+                        <section class="project-screenshots">
+                            <div class="screenshots-fullwidth">
+                                <img src="screenshots/collabio ss/Screenshot 2025-08-24 at 12.10.44 PM.png" alt="Collabio screenshot 1" class="screenshot-image-fullwidth">
+                                <img src="screenshots/collabio ss/Screenshot 2025-08-24 at 12.11.10 PM.png" alt="Collabio screenshot 2" class="screenshot-image-fullwidth">
+                                <img src="screenshots/collabio ss/Screenshot 2025-08-24 at 12.11.34 PM.png" alt="Collabio screenshot 3" class="screenshot-image-fullwidth">
+                                <img src="screenshots/collabio ss/Screenshot 2025-08-24 at 12.11.59 PM.png" alt="Collabio screenshot 4" class="screenshot-image-fullwidth">
+                            </div>
+                        </section>
+                        ` : ''}
+
                         <section class="project-section">
                             <h3 class="project-section-title">Role</h3>
                             <p class="project-section-content">${project.role}</p>
@@ -302,6 +376,17 @@
                 closeModal();
             }
         });
+
+        // Get project logo HTML based on project ID
+        function getProjectLogo(projectId) {
+            const logoMap = {
+                'collabio': '<img src="logos/collabio.svg" alt="Collabio" class="project-logo-image" style="filter: brightness(0) invert(1); width: 100%; height: 100%; object-fit: contain;">',
+                'snapbubu': '<img src="logos/snapbubu-icon.png" alt="SnapBubu" class="project-logo-image" style="filter: brightness(0) invert(1); width: 100%; height: 100%; object-fit: contain;">',
+                'getui': '<img src="logos/getui-logo.png" alt="getui" class="project-logo-image" style="filter: brightness(0) invert(1); width: 100%; height: 100%; object-fit: contain;">',
+                'other-builds': '<div style="background-color: #8b5cf6; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 24px;">O</div>'
+            };
+            return logoMap[projectId] || '<div style="background-color: #6366f1; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 24px;">?</div>';
+        }
     </script>
 </body>
 </html>
